@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopSyllabus — Replace Guesswork with AI Guided Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0088FF;--blue-lt:rgba(0,136,255,0.12);
+  --orange:#F47C20;--orange-fig:rgb(244,124,32);--navy:#1B3D8B;
+  --dark:#0F172A;--text:rgb(45,52,54);--muted:rgb(105,105,132);
+  --bg:rgb(248,248,246);--border:rgb(226,232,240);
+  --card-shadow:inset 0 0 0 1px rgb(226,232,240),0px 53px 32px 0px rgba(0,0,0,0.02),0px 23px 23px 0px rgba(0,0,0,0.04),0px 6px 13px 0px rgba(0,0,0,0.04);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;color:var(--dark);background:#fff;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none}
+
+/* ── HEADER ── */
+.hdr{position:sticky;top:0;z-index:100;height:90px;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 80px;transition:box-shadow .2s}
+.hdr-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.hdr-logo img{height:44px;width:auto;object-fit:contain}
+.hdr-nav{display:flex;gap:36px}
+.hdr-nav a{font-size:16px;font-weight:700;color:var(--text);transition:color .2s}
+.hdr-nav a:hover{color:var(--blue)}
+.hdr-btns{display:flex;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Manrope',sans-serif;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-ob{font-size:14px;padding:12px 28px;border-radius:12px;background:rgba(0,136,255,.15);color:var(--blue);border:1.5px solid var(--blue);letter-spacing:.04em;text-transform:uppercase}
+.btn-ob:hover{background:rgba(0,136,255,.25)}
+.btn-oo{font-size:14px;padding:12px 28px;border-radius:12px;background:var(--orange-fig);color:#fff;letter-spacing:.04em;text-transform:uppercase}
+.btn-oo:hover{background:#e0670e;transform:translateY(-1px)}
+.btn-sb{font-size:15px;padding:15px 28px;border-radius:10px;background:var(--blue);color:#fff}
+.btn-sb:hover{background:#006fe0}
+.btn-gb{font-size:15px;padding:14px 22px;border-radius:10px;background:var(--blue-lt);color:var(--blue);border:1.5px solid var(--blue)}
+.btn-gb:hover{background:rgba(0,136,255,0.22)}
+
+/* ── HERO ── */
+.hero{position:relative;height:calc(100vh - 90px);min-height:520px;display:flex;align-items:center;overflow:hidden}
+.hero-photo{position:absolute;top:0;right:0;width:70%;height:100%;background:url('components/assets/fcfb090e9a3b5174.png') center/cover no-repeat;transform:scaleX(-1);overflow:hidden}
+.hero-photo iframe{position:absolute;top:50%;left:50%;width:177.78vh;height:56.25vw;min-width:100%;min-height:100%;transform:translate(-50%,-50%);border:none;pointer-events:none}
+.hero-veil{position:absolute;top:0;left:0;width:62%;height:100%;background:linear-gradient(90deg,#fff 56%,transparent);pointer-events:none}
+.hero-glo{position:absolute;top:-120px;left:-160px;width:500px;height:500px;border-radius:50%;background:radial-gradient(rgba(250,130,25,.22),transparent 65%);pointer-events:none}
+.hero-glb{position:absolute;bottom:-100px;right:0;width:580px;height:580px;border-radius:50%;background:radial-gradient(rgba(0,136,255,.55),transparent 60%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;padding:0 80px;max-width:680px}
+.hero-inner h1{font-family:'Inter',sans-serif;font-size:62px;font-weight:700;line-height:1.08;color:#000;margin-bottom:18px;letter-spacing:-1.5px}
+.hero-inner h1 .acc{color:var(--orange-fig)}
+.hero-inner p{font-size:16px;color:#333;line-height:1.65;margin-bottom:32px;max-width:430px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.play-ic{width:18px;height:18px;flex-shrink:0}
+
+/* ── STATS ── */
+.stats-band{background:#F9F9F9;padding:52px 80px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1400px;margin:0 auto}
+.stat-c{background:#fff;border-radius:22px;padding:28px 36px;box-shadow:4px 4px 20px rgba(0,0,0,0.04);display:flex;align-items:center;gap:28px}
+.stat-ico{width:72px;height:72px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.stat-ico svg{width:72px;height:72px}
+.stat-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:52px;font-weight:700;color:#000;line-height:1}
+.stat-n .o{color:var(--orange-fig)}
+.stat-l{font-size:18px;color:#555;margin-top:6px}
+
+/* ── SECTION BASE ── */
+.sec{padding:100px 80px}
+.sec-badge{display:inline-block;background:var(--bg);border-radius:20px;padding:6px 22px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#0E78E9;text-transform:uppercase;margin-bottom:16px}
+.sec-h{font-size:48px;font-weight:700;line-height:1.2;color:var(--dark)}
+.sec-sub{font-size:18px;color:var(--text);margin-top:12px;line-height:1.55}
+.tc{text-align:center}
+
+/* ── FEATURES ── */
+.features{background:#fff;overflow:hidden;position:relative}
+.feat-glo{position:absolute;left:-321px;top:50%;transform:translateY(-50%);width:713px;height:948px;border-radius:50%;background:radial-gradient(262px 348px at 50% 50%,rgba(250,130,25,.42) 0%,transparent 100%);pointer-events:none}
+.feat-glb{position:absolute;right:-220px;top:50%;transform:translateY(-50%);width:891px;height:1299px;border-radius:50%;background:radial-gradient(445px 649px at 50% 50%,rgba(73,171,242,.4) 0%,rgba(179,218,249,0) 100%);pointer-events:none}
+.feat-grid{display:grid;grid-template-columns:1fr 340px 1fr;gap:40px;align-items:center;margin-top:56px}
+.feat-col{display:flex;flex-direction:column;gap:40px}
+.fc{background:rgba(248,248,246,.7);border-radius:24px;padding:50px;backdrop-filter:blur(4px);box-shadow:var(--card-shadow);text-align:center;display:flex;flex-direction:column;align-items:center;transition:transform .2s,box-shadow .2s;cursor:default}
+.fc:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgb(200,212,232),0px 56px 36px rgba(0,0,0,.03),0px 26px 26px rgba(0,0,0,.06),0px 10px 16px rgba(0,0,0,.06)}
+.fc-ico{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:24px;flex-shrink:0}
+.fc-ico.bl{background:rgb(0,136,255)}
+.fc-ico.nv{background:rgb(27,61,139)}
+.fc-ico img{width:40px;height:40px;object-fit:contain;filter:brightness(0) invert(1)}
+.fc-ico-svg{width:40px;height:40px;fill:#fff}
+.fc h3{font-size:28px;font-weight:500;margin-bottom:12px;color:rgb(45,52,54);line-height:1.1;letter-spacing:-.5px}
+.fc p{font-size:15px;color:var(--muted);line-height:1.6;text-align:center}
+.feat-mid{border-radius:24px;overflow:hidden;align-self:stretch;min-height:640px}
+.feat-mid img{width:100%;height:100%;object-fit:cover;object-position:60% center}
+
+/* ── HOW IT WORKS ── */
+.how{background:linear-gradient(rgba(27,61,139,.88),rgba(27,61,139,.88)),url('components/assets/93ca7798df4f3d32.jpg') center/cover no-repeat;padding:100px 80px}
+.how-hdr{margin-bottom:48px}
+.how .sec-h{color:#fff}
+.how .sec-sub{color:rgba(255,255,255,.78)}
+.steps{display:flex;flex-direction:column;margin-top:0}
+.step{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center;padding:40px 0;border-top:1px solid rgba(255,255,255,.12)}
+.step:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.step.rev{grid-template-columns:1fr 240px}
+.step.rev .sn{order:2;text-align:right}
+.step.rev .st{order:1}
+.sn{font-family:'Manrope',sans-serif;font-size:130px;font-weight:700;color:transparent;-webkit-text-stroke:2.5px var(--orange-fig);line-height:1}
+.st h3{font-size:30px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.5px}
+.st p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;max-width:920px}
+
+/* ── PLATFORM FEATURES ── */
+.platform{background:#fff;overflow:hidden;position:relative;padding:100px 80px}
+.plat-ring{position:absolute;top:-60px;left:-80px;width:197px;height:197px;border-radius:50%;box-shadow:inset 0 0 0 30px rgb(255,238,198);pointer-events:none}
+.plat-r1{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+.plat-r2{display:flex;gap:24px;justify-content:center;margin-top:24px}
+.plat-r2 .pc{width:calc(25% - 18px);max-width:420px;flex-shrink:0}
+.pc{border-radius:24px;overflow:hidden;background:rgba(248,248,246,.7);backdrop-filter:blur(4px);box-shadow:var(--card-shadow);transition:all .25s;display:flex;flex-direction:column}
+.pc:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgb(200,212,232),0px 56px 36px rgba(0,0,0,.03),0px 26px 26px rgba(0,0,0,.06),0px 10px 16px rgba(0,0,0,.06)}
+.pc-img{height:200px;overflow:hidden;flex-shrink:0}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-bd{padding:20px;background:rgb(248,248,246);flex:1;display:flex;flex-direction:column}
+.pc-pill{display:inline-block;background:#fff;border-radius:20px;padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#0E78E9;margin-bottom:10px;align-self:flex-start}
+.pc-pill.soon{color:rgb(100,116,139)}
+.pc h3{font-size:22px;font-weight:500;color:rgb(15,23,42);margin-bottom:8px;letter-spacing:-.003em;line-height:1.3}
+.pc p{font-size:15px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+
+/* ── PRICING ── */
+.pricing{background:rgb(27,61,139);padding:100px 80px;position:relative;overflow:hidden}
+.pricing-cards-wrap{overflow:hidden;position:relative;z-index:1}
+.pricing-topo{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:660px;opacity:.65;pointer-events:none;user-select:none}
+.pricing-topo2{position:absolute;left:-80px;bottom:-200px;width:500px;opacity:.4;pointer-events:none;transform:rotate(180deg)}
+.pricing .sec-badge{background:rgba(248,248,246,.2);color:rgb(244,124,32);border:1px solid rgba(244,124,32,.4)}
+.pricing .sec-h{color:rgb(226,232,240)}
+.pricing .sec-sub{color:rgba(255,255,255,.75);font-size:16px}
+.price-row{display:flex;gap:24px;justify-content:center;align-items:center;margin-top:56px;flex-wrap:wrap}
+.plan{width:380px;background:rgba(255,255,255,.92);border-radius:24px;padding:24px;backdrop-filter:blur(4px);box-shadow:var(--card-shadow);position:relative;transition:transform .2s;display:flex;flex-direction:column}
+.plan:hover{transform:translateY(-4px)}
+.plan.feat{background:#fff;box-shadow:0 24px 72px rgba(0,0,0,.28)}
+.p-badge{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;border-radius:12px;padding:7px 24px;font-size:14px;font-weight:700;white-space:nowrap}
+.p-ico-sq{width:60px;height:60px;border-radius:16px;background:rgba(248,248,246,.9);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.p-ico-sq svg{width:24px;height:24px;fill:var(--orange-fig)}
+.p-name{font-size:22px;font-weight:500;color:var(--orange-fig);letter-spacing:-.003em;margin-bottom:6px}
+.p-price{font-family:'Inter',sans-serif;font-size:48px;font-weight:700;color:var(--text);letter-spacing:-1px;line-height:1;margin-bottom:24px}
+.p-price .mo{font-size:18px;font-weight:400;letter-spacing:0;color:rgb(100,116,139)}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:28px;flex:1}
+.p-feats li{display:flex;align-items:center;gap:12px;font-size:16px;color:var(--text);line-height:1.4}
+.pck{width:22px;height:22px;border-radius:50%;background:rgb(233,236,244);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pck svg{width:13px;height:13px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pbo{width:100%;padding:14px;border-radius:10px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-weight:600;font-size:16px;cursor:pointer;font-family:'Manrope',sans-serif;transition:all .2s;letter-spacing:.04em;text-transform:uppercase}
+.pbo:hover{background:var(--blue-lt)}
+.pbf{width:100%;padding:15px;border-radius:10px;background:var(--blue);border:none;color:#fff;font-weight:600;font-size:16px;cursor:pointer;font-family:'Manrope',sans-serif;transition:all .2s;letter-spacing:.04em;text-transform:uppercase}
+.pbf:hover{background:#006fe0}
+
+/* ── TESTIMONIALS ── */
+.testi{padding:100px 80px;background:#fff}
+.testi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
+.tcrd{background:var(--bg);border-radius:16px;padding:28px;border:1px solid var(--border)}
+.stars{display:flex;gap:3px;margin-bottom:14px}
+.stars svg{width:16px;height:16px;fill:#FFB300}
+.tcrd-q{font-size:15px;color:var(--text);line-height:1.72;margin-bottom:20px}
+.tcrd-auth{display:flex;align-items:center;gap:12px}
+.tcrd-av{width:44px;height:44px;border-radius:50%;overflow:hidden;background:var(--border);flex-shrink:0}
+.tcrd-av img{width:100%;height:100%;object-fit:cover}
+.tcrd-name{font-weight:700;font-size:15px}
+.tcrd-role{font-size:13px;color:var(--muted)}
+
+/* ── CTA ── */
+.cta-sec{padding:100px 40px}
+.cta-wrap{border-radius:40px;overflow:hidden;min-height:820px;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('components/assets/7bbe6cee201da1fa.jpg') 100% 38%/cover no-repeat;display:flex;align-items:center;justify-content:flex-end;padding:48px}
+.cta-card{width:620px;background:rgba(248,248,246,.94);backdrop-filter:blur(8px);border-radius:24px;padding:56px 40px;border:1px solid var(--border);box-shadow:var(--card-shadow)}
+.cta-card h2{font-family:'Inter',sans-serif;font-size:44px;font-weight:700;color:var(--dark);margin-bottom:12px;line-height:1.1;letter-spacing:-.01em}
+.cta-card h2 em{font-style:normal;color:var(--blue)}
+.cta-card>p{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:28px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:16px;color:rgb(69,71,75);margin-bottom:8px;font-weight:500}
+.fg input,.fg textarea{width:100%;padding:16px;border-radius:10px;border:none;box-shadow:inset 0 0 0 1px var(--border),0px 1px 2px rgba(16,24,40,.05);background:#fff;font-size:16px;font-family:'Manrope',sans-serif;color:var(--dark);outline:none;transition:box-shadow .2s}
+.fg input:focus,.fg textarea:focus{box-shadow:inset 0 0 0 1px var(--blue),0 0 0 3px rgba(0,136,255,.1)}
+.fg textarea{resize:vertical;min-height:100px}
+.phone-row{display:flex;gap:0;box-shadow:inset 0 0 0 1px var(--border),0px 1px 2px rgba(16,24,40,.05);border-radius:10px;overflow:hidden;background:#fff;transition:box-shadow .2s}
+.fg input[type="email"]{-webkit-appearance:none;appearance:none}
+.fg input::-webkit-contacts-auto-fill-button,
+.fg input::-webkit-credentials-auto-fill-button{display:none!important;visibility:hidden;pointer-events:none;position:absolute;right:0}
+.phone-row:focus-within{box-shadow:inset 0 0 0 1px var(--blue),0 0 0 3px rgba(0,136,255,.1)}
+.cc-select{display:flex;align-items:center;gap:6px;padding:0 12px;border:none;border-right:1px solid var(--border);background:#fff;font-family:'Manrope',sans-serif;font-size:15px;color:var(--dark);cursor:pointer;min-width:90px;outline:none;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+.cc-flag{font-size:18px}
+.phone-input{flex:1;padding:16px 14px;border:none;background:transparent;font-size:16px;font-family:'Manrope',sans-serif;color:var(--dark);outline:none}
+.btn-sub{width:100%;padding:16px;border-radius:20px;background:#0E78E9;color:#fff;border:none;font-size:16px;font-weight:600;cursor:pointer;font-family:'Manrope',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;margin-top:8px;letter-spacing:.04em;text-transform:uppercase}
+.btn-sub:hover{background:#0a65c8}
+
+/* ── FAQ ── */
+.faq{padding:100px 80px;background:#fff;position:relative;overflow:hidden}
+.faq-glo{position:absolute;right:-200px;top:50px;width:900px;height:900px;border-radius:50%;background:radial-gradient(rgba(250,130,25,.18),transparent 60%);pointer-events:none}
+.faq-lay{display:grid;grid-template-columns:1fr 400px;gap:48px;margin-top:48px;align-items:start}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.fi{border-radius:12px;background:#F9F9F9;border:1px solid var(--border);overflow:hidden}
+.fi-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:none;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-size:17px;font-weight:500;color:var(--dark);text-align:left;gap:16px;transition:color .15s}
+.fi-q:hover{color:var(--blue)}
+.fi-ic{width:22px;height:22px;min-width:22px;color:var(--blue);transition:transform .25s;stroke:currentColor;fill:none;stroke-width:2.5}
+.fi-a{padding:0 24px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s}
+.fi.open .fi-a{max-height:200px;padding:0 24px 18px}
+.fi.open .fi-ic{transform:rotate(45deg)}
+.fi-a p{font-size:15px;color:rgb(100,116,139);line-height:1.75}
+.faq-photo{border-radius:14px;overflow:hidden;height:520px}
+.faq-photo img{width:100%;height:100%;object-fit:cover}
+
+/* ── FOOTER ── */
+footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%);color:#fff;padding:80px 80px 40px;border-radius:40px 40px 0 0}
+.ft-grid{display:grid;grid-template-columns:1fr 200px 200px;gap:80px;margin-bottom:52px;align-items:start}
+.ft-logo-wrap{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.ft-logo-icon{height:36px;width:auto;object-fit:contain}
+.ft-logo-name{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.ft-tagline{font-size:28px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:12px;letter-spacing:-.5px;max-width:480px}
+.ft-desc{font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;max-width:460px}
+.ft-col h4{font-size:20px;font-weight:500;color:#fff;margin-bottom:20px}
+.ft-col a{display:block;font-size:15px;color:rgba(255,255,255,.7);margin-bottom:14px;transition:color .15s}
+.ft-col a:hover{color:#fff}
+.ft-divider{border:none;border-top:0.5px solid rgb(148,163,184);margin:0 0 28px}
+.ft-bot{display:flex;justify-content:space-between;align-items:center}
+.ft-copy{font-size:15px;color:rgba(255,255,255,.75)}
+.ft-soc{display:flex;gap:20px}
+.socb{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.socb:hover{transform:scale(1.08);background:rgba(255,255,255,.9)}
+.socb svg{width:18px;height:18px;fill:#000}
+.socb.ld svg{fill:none;stroke:#000;stroke-width:1.5}
+.socb.ig svg{fill:none;stroke:#000;stroke-width:1.5}
+
+/* ── HAMBURGER MENU ── */
+.hdr-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
+.hdr-burger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s}
+.hdr-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hdr-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hdr-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── MOBILE NAV DRAWER ── */
+.mob-nav{position:fixed;inset:0;z-index:150;pointer-events:none}
+.mob-nav-bg{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity .3s}
+.mob-nav-drawer{position:absolute;top:0;right:0;width:min(320px,88vw);height:100%;background:#fff;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:80px 32px 40px;gap:0;box-shadow:-8px 0 40px rgba(0,0,0,.12);overflow-y:auto}
+.mob-nav.open .mob-nav-bg{opacity:1;pointer-events:all}
+.mob-nav.open .mob-nav-drawer{transform:translateX(0);pointer-events:all}
+.mob-nav-drawer a{font-size:20px;font-weight:700;color:var(--dark);padding:16px 0;border-bottom:1px solid var(--border);display:block;transition:color .2s}
+.mob-nav-drawer a:last-of-type{border-bottom:none}
+.mob-nav-drawer a:hover{color:var(--blue)}
+.mob-nav-ctas{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.mob-nav-ctas .btn{width:100%;justify-content:center;padding:14px}
+
+/* ── MOBILE RESPONSIVENESS ── */
+@media (max-width:1280px){
+  .hdr{padding:0 48px}
+  .hero-inner{padding:0 48px}
+  .sec,.how,.platform,.pricing,.testi,.faq{padding-left:48px;padding-right:48px}
+  .stats-band{padding-left:48px;padding-right:48px}
+  .feat-grid{grid-template-columns:1fr 280px 1fr;gap:28px}
+  .plat-r1{grid-template-columns:repeat(2,1fr)}
+  .plat-r2{flex-wrap:wrap}
+  .plat-r2 .pc{width:calc(50% - 12px)}
+  .plan{width:300px}
+  footer{padding:64px 48px 36px}
+  .ft-grid{gap:48px}
+}
+
+@media (max-width:1024px){
+  .hdr-nav{gap:24px}
+  .hdr-nav a{font-size:14px}
+  .feat-grid{grid-template-columns:1fr 240px 1fr;gap:20px}
+  .fc{padding:36px 20px}
+  .fc h3{font-size:22px}
+}
+
+@media (max-width:860px){
+  /* Header */
+  .hdr{padding:0 24px;height:70px}
+  .hdr-nav{display:none}
+  .hdr-btns{display:none}
+  .hdr-burger{display:flex}
+
+  /* Hero — tablet: keep split layout, just resize */
+  .hero-inner{padding:0 24px}
+  .hero-inner h1{font-size:42px;letter-spacing:-.5px}
+  .hero-photo{width:52%}
+  .hero-veil{width:68%}
+  .hero-play{right:8%;width:64px;height:64px}
+  .hero-play svg{width:64px;height:64px}
+
+  /* Stats */
+  .stats-band{padding:36px 24px}
+  .stats-row{grid-template-columns:1fr 1fr;gap:16px}
+
+  /* Sections */
+  .sec,.testi,.faq{padding:64px 24px}
+  .how{padding:64px 24px}
+  .platform{padding:64px 24px}
+  .pricing{padding:64px 24px}
+  .sec-h{font-size:36px}
+
+  /* Features — hide center image, show 2-col cards */
+  .feat-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .feat-mid{display:none}
+  .feat-col{gap:16px}
+  .fc{padding:28px 20px}
+  .fc-ico{width:64px;height:64px;margin-bottom:16px}
+  .fc-ico img,.fc-ico-svg{width:32px;height:32px}
+  .fc h3{font-size:20px}
+  .fc p{font-size:14px}
+
+  /* How it works — center header on mobile */
+  .how-hdr{text-align:center}
+  .how-hdr .sec-badge{display:inline-block}
+  .step{grid-template-columns:80px 1fr;gap:20px;padding:28px 0}
+  .step.rev{grid-template-columns:1fr 80px}
+  .sn{font-size:72px}
+  .st h3{font-size:22px}
+  .st p{font-size:14px}
+
+  /* Platform */
+  .plat-r1{grid-template-columns:repeat(2,1fr);gap:16px}
+  .plat-r2{gap:16px;flex-wrap:wrap}
+  .plat-r2 .pc{width:calc(50% - 8px)}
+  .pc h3{font-size:18px}
+
+  /* Pricing */
+  .price-row{flex-direction:column;align-items:center;gap:24px}
+  .plan{width:100%;max-width:440px}
+
+  /* Testimonials — horizontal scroll */
+  .testi-row{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:16px;margin:0 -24px;padding-left:24px;padding-right:24px;grid-template-columns:unset}
+  .testi-row::-webkit-scrollbar{display:none}
+  .tcrd{min-width:300px;flex-shrink:0;scroll-snap-align:start}
+
+  /* CTA */
+  .cta-sec{padding:48px 24px}
+  .cta-wrap{min-height:auto;padding:24px;justify-content:center;align-items:flex-end}
+  .cta-card{width:100%;max-width:520px;padding:40px 28px}
+  .cta-card h2{font-size:34px}
+
+  /* FAQ */
+  .faq-lay{grid-template-columns:1fr;gap:24px}
+  .faq-photo{height:240px}
+
+  /* Footer */
+  footer{padding:52px 24px 32px;border-radius:28px 28px 0 0}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .ft-tagline{font-size:22px}
+  .ft-desc{font-size:14px}
+  .ft-col h4{font-size:17px}
+}
+
+@media (max-width:580px){
+  /* Header */
+  .hdr{padding:0 16px;height:64px}
+
+  /* Hero — top half image + play, bottom half white text */
+  .hero{height:93svh;min-height:93svh;flex-direction:column;align-items:stretch;overflow:hidden}
+  /* Photo: normal flow, takes top 50% */
+  .hero-photo{position:relative;top:auto;left:auto;right:auto;bottom:auto;width:100%;height:60%;flex-shrink:0;transform:none;background-position:60% 30%; background-position: center;}
+  /* Kill the desktop left-side gradient veil */
+  .hero-veil{background: linear-gradient(2deg, #fff 49%, #00000000);
+        width: 100%;        top: 45%;
+      height: 150px;}
+  .hero-glo{display:none}
+  .hero-glb{display:none}
+  /* Play button: centered in the top image half */
+  .hero-play{position:absolute;top:25svh;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;z-index:4}
+  .hero-play:hover{transform:translate(-50%,-50%) scale(1.1)}
+  .hero-play svg{width:64px;height:64px}
+  /* Inner: takes bottom 50%, solid white, vertically centered */
+  .hero-inner{position:relative;z-index:2;background:#fff;padding:20px 20px 0px;max-width:100%;width:100%;flex:1;display:flex;flex-direction:column;}
+  .hero-inner h1{font-size:28px;letter-spacing:-.3px;color:#000;margin-bottom:12px}
+  .hero-inner p{font-size:14px;margin-bottom:20px;max-width:100%}
+  .hero-ctas{flex-direction:column;gap:10px}
+  .btn-sb,.btn-gb{width:100%;justify-content:center}
+
+  /* Stats */
+  .stats-band{padding:28px 16px}
+  .stats-row{grid-template-columns:1fr;gap:12px}
+  .stat-c{padding:20px 20px;gap:20px}
+  .stat-ico{width:56px;height:56px}
+  .stat-ico svg{width:56px;height:56px}
+  .stat-n{font-size:40px}
+  .stat-l{font-size:16px}
+
+  /* Sections */
+  .sec,.testi,.faq{padding:52px 16px}
+  .how{padding:52px 16px}
+  .platform{padding:52px 16px}
+  .pricing{padding:52px 16px}
+  .cta-sec{padding:32px 12px}
+  .sec-h{font-size:26px;line-height:1.25}
+  .sec-sub{font-size:14px}
+  .sec-badge{font-size:11px;padding:5px 16px}
+
+  /* Features — single col */
+  .feat-grid{grid-template-columns:1fr;gap:14px}
+  .fc{padding:24px 20px;border-radius:18px}
+  .fc-ico{width:56px;height:56px;margin-bottom:14px}
+  .fc-ico img,.fc-ico-svg{width:28px;height:28px}
+  .fc h3{font-size:18px;margin-bottom:8px}
+  .fc p{font-size:13px}
+
+  /* How it works */
+  .step,.step.rev{display:flex;flex-direction:column;gap:8px;padding:24px 0;        text-align: center;}
+  .step.rev .sn{order:0;text-align:left;margin-left:0}
+  .sn{font-size:56px;line-height:1;margin-bottom:4px; text-align:left;margin-left:0;padding-left:0}
+  .st h3{font-size:20px}
+  .st p{font-size:14px}
+
+  /* Platform */
+  .plat-r1{grid-template-columns:1fr;gap:14px}
+  .plat-r2{flex-direction:column;align-items:stretch;gap:14px}
+  .plat-r2 .pc{width:100%;max-width:100%}
+  .pc-img{height:180px}
+  .pc h3{font-size:17px}
+  .pc p{font-size:13px}
+  .pc-bd{padding:16px}
+.plat-ring{
+  display:none;
+}
+  /* Pricing — stacked on mobile, no horizontal scroll (overflow:hidden clips it) */
+  .pricing{overflow:hidden}
+  .price-row{flex-direction:column;align-items:center;gap:20px;overflow:visible;margin:32px 0 0;padding:0}
+  .plan{min-width:unset;width:100%;max-width:400px;flex-shrink:unset;scroll-snap-align:unset}
+  .p-price{font-size:40px}
+  .p-feats li{font-size:14px}
+  .pbo,.pbf{font-size:14px;padding:12px}
+
+  /* Testimonials — horizontal scroll */
+  .testi{overflow:visible}
+  .testi-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;margin:32px -16px 0;padding-left:16px;padding-right:24px}
+  .testi-row::-webkit-scrollbar{display:none}
+  .tcrd{min-width:82vw;flex-shrink:0;scroll-snap-align:start}
+
+  /* CTA */
+  .cta-wrap{border-radius:24px;padding:16px}
+  .cta-card{padding:28px 16px;border-radius:18px}
+  .cta-card h2{font-size:26px}
+  .cta-card>p{font-size:13px}
+  .fg label{font-size:14px}
+  .fg input,.fg textarea,.phone-input{font-size:15px;padding:14px}
+  .cc-select{font-size:14px;padding:0 8px;padding-right:24px;min-width:80px}
+  .btn-sub{font-size:15px;padding:14px}
+
+  /* FAQ */
+  .fi-q{font-size:15px;padding:16px 18px}
+  .fi-a p{font-size:14px}
+  .faq-photo{display:none}
+  .faq-lay{grid-template-columns:1fr}
+
+  /* Footer */
+  footer{padding:44px 16px 28px;border-radius:20px 20px 0 0}
+  .ft-grid{grid-template-columns:1fr;gap:28px}
+  .ft-logo-icon{height:30px}
+  .ft-logo-name{font-size:18px}
+  .ft-tagline{font-size:20px}
+  .ft-col h4{font-size:16px;margin-bottom:14px}
+  .ft-col a{font-size:14px;margin-bottom:10px}
+  .ft-divider{margin:0 0 20px}
+  .ft-bot{flex-direction:column;gap:16px;align-items:flex-start}
+  .ft-copy{font-size:13px}
+  .socb{width:36px;height:36px}
+  .socb svg{width:16px;height:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a href="#" class="hdr-logo"><img src="assets/logo-cropped.png" alt="TopSyllabus"></a>
+  <nav class="hdr-nav">
+    <a href="#features">Benefits</a>
+    <a href="#how">How It Works</a>
+    <a href="#platform">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="hdr-btns">
+    <a href="#contact" class="btn btn-ob">Contact Us</a>
+    <a href="#pricing" class="btn btn-oo">Get Started</a>
+  </div>
+  <button class="hdr-burger" id="burgerBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <div class="mob-nav-bg" id="mobNavBg"></div>
+  <div class="mob-nav-drawer">
+    <a href="#features" class="mob-link">Benefits</a>
+    <a href="#how" class="mob-link">How It Works</a>
+    <a href="#platform" class="mob-link">Features</a>
+    <a href="#pricing" class="mob-link">Pricing</a>
+    <a href="#faq" class="mob-link">FAQ</a>
+    <div class="mob-nav-ctas">
+      <a href="#contact" class="btn btn-ob">Contact Us</a>
+      <a href="#pricing" class="btn btn-oo">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo">
+    <iframe src="https://www.youtube-nocookie.com/embed/RDeTdXMOXmI?autoplay=1&mute=1&loop=1&playlist=RDeTdXMOXmI&controls=0&rel=0&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen title="Hero background video"></iframe>
+  </div>
+  <div class="hero-veil"></div>
+  <div class="hero-glo"></div>
+  <div class="hero-glb"></div>
+  <div class="hero-inner">
+    <h1>Replace Guesswork with<br><span class="acc">AI Guided Growth.</span></h1>
+    <p>TopSyllabus Makes Exam Readiness Truly Measurable Every Chapter, Every Week.</p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn btn-sb">Replace Guess Work Today</a>
+      <a href="#how" class="btn btn-gb">
+        <svg class="play-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        See How It Works
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-band">
+  <div class="stats-row">
+    <div class="stat-c">
+      <div class="stat-ico">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B3D8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 14 C26 11 16 11 8 15 L8 52 C16 48 26 48 32 52"/>
+          <path d="M32 14 C38 11 48 11 56 15 L56 52 C48 48 38 48 32 52"/>
+          <line x1="32" y1="14" x2="32" y2="52"/>
+        </svg>
+      </div>
+      <div>
+        <div class="stat-n">12<span class="o">k+</span></div>
+        <div class="stat-l">AI-Powered Lessons</div>
+      </div>
+    </div>
+    <div class="stat-c">
+      <div class="stat-ico">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B3D8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8 L46 8 L46 28 C46 39 32 44 32 44 C32 44 18 39 18 28 Z"/>
+          <path d="M18 13 C10 13 7 17 7 21 C7 27 13 29 18 27"/>
+          <path d="M46 13 C54 13 57 17 57 21 C57 27 51 29 46 27"/>
+          <line x1="32" y1="44" x2="32" y2="52"/>
+          <line x1="20" y1="52" x2="44" y2="52"/>
+          <line x1="23" y1="57" x2="41" y2="57"/>
+        </svg>
+      </div>
+      <div>
+        <div class="stat-n">99<span class="o">%</span></div>
+        <div class="stat-l">Exam Prep Accuracy</div>
+      </div>
+    </div>
+    <div class="stat-c">
+      <div class="stat-ico">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B3D8B" stroke-width="2.5" stroke-linecap="round">
+          <line x1="8" y1="16" x2="14" y2="16"/><line x1="20" y1="16" x2="44" y2="16"/>
+          <line x1="8" y1="28" x2="14" y2="28"/><line x1="20" y1="28" x2="44" y2="28"/>
+          <line x1="8" y1="40" x2="14" y2="40"/><line x1="20" y1="40" x2="36" y2="40"/>
+          <line x1="52" y1="40" x2="52" y2="56"/><line x1="44" y1="48" x2="60" y2="48"/>
+        </svg>
+      </div>
+      <div>
+        <div class="stat-n">100<span class="o">+</span></div>
+        <div class="stat-l">AI Tests · 5 Subjects</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES (Benefits) -->
+<section class="sec features" id="features">
+  <div class="feat-glo"></div>
+  <div class="feat-glb"></div>
+  <div class="tc">
+    <span class="sec-badge">Features We Offer</span>
+    <h2 class="sec-h">Everything you need to pass</h2>
+    <p class="sec-sub">Forget Generic Study Guides. We Map Your Weak Spots And Target Them<br>Relentlessly — Until They Become Your Strongest Assets.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-col">
+      <div class="fc">
+        <div class="fc-ico bl"><img src="assets/icon-fc-left.svg" alt=""></div>
+        <h3>Adaptive Learning Engine</h3>
+        <p>AI Identifies And Maps Weak Topics, Adjusts Practice Sessions To Focus On Them Before Free Study.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-ico bl">
+          <svg class="fc-ico-svg" viewBox="0 0 40 40"><path d="M35 6.667H5A3.333 3.333 0 0 0 1.667 10v18.333A3.333 3.333 0 0 0 5 31.667h8.333L20 38.333l6.667-6.666H35a3.333 3.333 0 0 0 3.333-3.334V10A3.333 3.333 0 0 0 35 6.667ZM13.333 21.667a1.667 1.667 0 1 1 0-3.334 1.667 1.667 0 0 1 0 3.334Zm6.667 0a1.667 1.667 0 1 1 0-3.334 1.667 1.667 0 0 1 0 3.334Zm6.667 0a1.667 1.667 0 1 1 0-3.334 1.667 1.667 0 0 1 0 3.334Z"/></svg>
+        </div>
+        <h3>Instant Feedback &amp; Explanations</h3>
+        <p>Every Question Comes With Step-By-Step Explanation — Not Just Right/Wrong, Understand Why.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-ico bl">
+          <svg class="fc-ico-svg" viewBox="0 0 40 40"><rect x="3.333" y="26.667" width="6.667" height="10" rx="1"/><rect x="16.667" y="18.333" width="6.667" height="18.333" rx="1"/><rect x="30" y="10" width="6.667" height="26.667" rx="1"/><path d="M5 21.667 L18.333 13.333 L25 18.333 L35 8.333" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <h3>Progress Analytics</h3>
+        <p>Data-Rich Dashboards Show Real-Time Improvement And Clarity On Exam Readiness Journey.</p>
+      </div>
+    </div>
+    <div class="feat-mid">
+      <img src="assets/features-student-hq.png" alt="Student studying with TopSyllabus">
+    </div>
+    <div class="feat-col">
+      <div class="fc">
+        <div class="fc-ico nv"><img src="assets/icon-fc-right.svg" alt=""></div>
+        <h3>Curriculum-Aligned Content</h3>
+        <p>All Questions Mapped To Official Syllabus Objectives — Always On Track, Always On Exam Focus.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-ico bl">
+          <svg class="fc-ico-svg" viewBox="0 0 40 40"><rect x="5" y="6.667" width="30" height="30" rx="3" stroke="white" stroke-width="2.5" fill="none"/><line x1="26.667" y1="3.333" x2="26.667" y2="10" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="13.333" y1="3.333" x2="13.333" y2="10" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="16.667" x2="35" y2="16.667" stroke="white" stroke-width="2.5"/><circle cx="13.333" cy="24" r="2" fill="white"/><circle cx="20" cy="24" r="2" fill="white"/><circle cx="26.667" cy="24" r="2" fill="white"/></svg>
+        </div>
+        <h3>Study On Your Schedule</h3>
+        <p>Mobile-First Design — Study For 5 Minutes, Any Time, Any Space. No Minimum Session.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-ico nv">
+          <svg class="fc-ico-svg" viewBox="0 0 40 40"><path d="M28.333 35v-3.333A6.667 6.667 0 0 0 21.667 25H8.333A6.667 6.667 0 0 0 1.667 31.667V35"/><circle cx="15" cy="15" r="6.667"/><path d="M38.333 35v-3.333A6.667 6.667 0 0 0 33.333 25"/><path d="M26.667 8.433a6.667 6.667 0 0 1 0 13.134"/></svg>
+        </div>
+        <h3>Community &amp; Peer Support</h3>
+        <p>Join Thousands Revising For The Same Exam — Study Communities During Exam Season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-hdr tc">
+    <span class="sec-badge" style="background:rgba(255,255,255,.15);color:#fff">How We Do It</span>
+    <h2 class="sec-h">How it works</h2>
+    <p class="sec-sub">Three simple steps. One measurable outcome: you pass.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="sn">01</div>
+      <div class="st">
+        <h3>Choose Your Smart-Alex Q-Pilot</h3>
+        <p>Pick your exam category and let our AI build a personalised study profile from your very first session. Your Q-Pilot learns continuously — adapting difficulty, pacing, and focus areas to your unique strengths and gaps.</p>
+      </div>
+    </div>
+    <div class="step rev">
+      <div class="st">
+        <h3>Practice with AI</h3>
+        <p>Answer smart practice questions crafted around your exact exam board. Each session is adaptive — progressively harder where you're strong, focused and patient where you're weak. No wasted effort, no off-topic content.</p>
+      </div>
+      <div class="sn">02</div>
+    </div>
+    <div class="step">
+      <div class="sn">03</div>
+      <div class="st">
+        <h3>Track Your Progress</h3>
+        <p>Watch your readiness score climb in real time. Subject-by-subject dashboards identify sticking points early — and keep you, your parents, and your teachers fully informed of exactly where you stand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM FEATURES -->
+<section class="platform" id="platform">
+  <div class="plat-ring"></div>
+  <div class="tc">
+    <span class="sec-badge">Platform Features</span>
+    <h2 class="sec-h">Built for serious students</h2>
+    <p class="sec-sub">Every Feature Designed Around One Question: What Actually Helps Students Pass Exams?</p>
+  </div>
+  <div class="plat-r1">
+    <div class="pc"><div class="pc-img"><img src="components/assets/f2981a87e986add1.jpg" alt="Smart AI Co-Pilot"></div><div class="pc-bd"><span class="pc-pill">Live · Core AI</span><h3>Smart AI Co-Pilot</h3><p>Our AI Understands Your Board Curriculum And Generates Chapter-Wise, Board-Pattern Questions Tailored To Your Exact Learning Need.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/90146f896a3c231d.jpg" alt="Analytics"></div><div class="pc-bd"><span class="pc-pill">Live · Analytics</span><h3>Detailed Performance Analytics</h3><p>Track Performance Across Subjects, Chapters, And Difficulty Levels. Parents And Teachers Get Their Own Dashboards — Identify Weak Areas B.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/dc791d4285575c13.jpg" alt="Practice"></div><div class="pc-bd"><span class="pc-pill">Live · Practice</span><h3>Continuous Weekly Practice</h3><p>Weekly Revision Cycles Ensure Concepts Stay Fresh. Structured 15–20 Minute Daily Sessions — No Last-Minute Cramming, No Guesswork.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/cc3c591cb9c55a80.jpg" alt="Multi-User"></div><div class="pc-bd"><span class="pc-pill">Live · Multi-User</span><h3>Multi-User Dashboards</h3><p>Students, Parents, And Teachers Each Get A Dedicated View With Relevant Insights And Controls — A School-Wide Admin Panel Is Available.</p></div></div>
+  </div>
+  <div class="plat-r2">
+    <div class="pc"><div class="pc-img"><img src="components/assets/ce0ec71d497358c1.jpg" alt="NEP 2020"></div><div class="pc-bd"><span class="pc-pill">Live · NEP 2020</span><h3>NEP 2020 Aligned</h3><p>Questions Designed To Test Conceptual Understanding And Application — Aligned To The Revised NCERT 2026-27 Curriculum Across CBSE.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/d91745dbb6c685a5.jpg" alt="Predictive Score"></div><div class="pc-bd"><span class="pc-pill soon">Coming Soon</span><h3>Predictive Readiness Score</h3><p>Our AI Will Analyse Your Practice History And Predict Your Exam Score — So You Always Know If You're On Track To Reach Your Goal Before Exam.</p></div></div>
+    <div class="pc"><div class="pc-img" style="background:linear-gradient(135deg,#6b48ff,#a78bfa);display:flex;align-items:center;justify-content:center;height:200px"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="pc-bd"><span class="pc-pill soon">Coming Soon</span><h3>Competitive Exam Prep</h3><p>The Same AI Engine, Extended To India's Most High-Stakes Entrance Exams. Competitive Exam Preparation — Built On The Foundation Student.</p></div></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <img class="pricing-topo" src="assets/pricing-bg.svg" alt="" aria-hidden="true">
+  <img class="pricing-topo2" src="assets/pricing-bg2.svg" alt="" aria-hidden="true">
+  <div class="tc" style="position:relative;z-index:1">
+    <span class="sec-badge">Pricing</span>
+    <h2 class="sec-h">Invest in your future</h2>
+    <p class="sec-sub">All Plans Start With A Free Trial. No Credit Card Required To Begin.</p>
+  </div>
+  <div class="price-row" style="position:relative;z-index:1">
+    <!-- ESSENTIAL -->
+    <div class="plan">
+      <div class="p-ico-sq">
+        <svg viewBox="0 0 16 16"><path d="M8 0C9.061 0 10.078.421 10.828 1.172 11.579 1.922 12 2.939 12 4c0 1.061-.421 2.078-1.172 2.828C10.078 7.579 9.061 8 8 8c-1.061 0-2.078-.421-2.828-1.172C4.421 6.078 4 5.061 4 4c0-1.061.421-2.078 1.172-2.828C5.922.421 6.939 0 8 0zm0 10c4.42 0 8 1.79 8 4v2H0v-2c0-2.21 3.58-4 8-4z" fill-rule="nonzero"/></svg>
+      </div>
+      <div class="p-name">Essential</div>
+      <div class="p-price">499 <span class="mo">/ mo</span></div>
+      <ul class="p-feats">
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>20 questions per day</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>1 exam category</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Basic progress tracking</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Community access</li>
+      </ul>
+      <button class="pbo">Start Free</button>
+    </div>
+    <!-- PRO -->
+    <div class="plan feat">
+      <div class="p-badge">Most Popular</div>
+      <div class="p-ico-sq">
+        <svg viewBox="0 0 22 18"><path d="M5 18l-3-14 7 4 3-8 3 8 7-4-3 14H5z" fill-rule="nonzero"/></svg>
+      </div>
+      <div class="p-name">Pro</div>
+      <div class="p-price">699 <span class="mo">/ mo</span></div>
+      <ul class="p-feats">
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Unlimited questions</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>All 180+ exam categories</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Full mock exams &amp; simulations</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>AI adaptive study plan</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Predictive readiness score</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Flashcards &amp; smart notes</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Priority support</li>
+      </ul>
+      <button class="pbf">Start Pro</button>
+    </div>
+    <!-- ENTERPRISE -->
+    <div class="plan">
+      <div class="p-ico-sq">
+        <svg viewBox="0 0 22 18"><path d="M20 16h2v2H0v-2h2V1C2 .45 2.45 0 3 0h10c.55 0 1 .45 1 1v15h2V6h3a1 1 0 011 1v9zM6 8v2h4V8H6zm0-4v2h4V4H6z" fill-rule="nonzero"/></svg>
+      </div>
+      <div class="p-name">Enterprise</div>
+      <div class="p-price" style="font-size:42px;letter-spacing:-.5px">Custom</div>
+      <ul class="p-feats">
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Everything in Pro</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Admin dashboard</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Custom syllabus schedule</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>Dedicated support calendar</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>LMS integration</li>
+        <li><span class="pck"><svg viewBox="0 0 13 10"><polyline points="1 5 4.5 8.5 12 1"/></svg></span>API access</li>
+      </ul>
+      <button class="pbo">Contact Sales</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi" id="testimonials">
+  <div class="tc">
+    <span class="sec-badge">Loved By Students &amp; Teachers</span>
+    <h2 class="sec-h">Hear from those who<br>made the switch</h2>
+    <p class="sec-sub" style="max-width:600px;margin:12px auto 0">Discover how TopSyllabus has helped thousands of students build confidence, raise scores, and achieve measurable growth.</p>
+  </div>
+  <div class="testi-row">
+    <div class="tcrd">
+      <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg></div>
+      <p class="tcrd-q">"TopSyllabus completely changed how I study. The AI adapts to my weaknesses and I improved my mock scores by 34 points in just 6 weeks. Nothing else comes close."</p>
+      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/dc791d4285575c13.jpg" alt="Avril Song"></div><div><div class="tcrd-name">Avril Song</div><div class="tcrd-role">Science Student · 4.8 ★</div></div></div>
+    </div>
+    <div class="tcrd">
+      <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg></div>
+      <p class="tcrd-q">"The step-by-step explanations are game-changing. I finally understand the why, not just the what. My exam confidence is completely different now — I feel prepared."</p>
+      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/d91745dbb6c685a5.jpg" alt="Michael Wong"></div><div><div class="tcrd-name">Michael Wong</div><div class="tcrd-role">UI/UX Design Student · 4.9 ★</div></div></div>
+    </div>
+    <div class="tcrd">
+      <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg></div>
+      <p class="tcrd-q">"The progress analytics are incredible. I can see exactly which chapters need attention and my parents can track too. The predictive score keeps me honest about where I stand."</p>
+      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/ce0ec71d497358c1.jpg" alt="Jeane Wood"></div><div><div class="tcrd-name">Jeane Wood</div><div class="tcrd-role">Data Science Student · 5.0 ★</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-sec" id="contact">
+  <div class="cta-wrap">
+    <div class="cta-card">
+      <h2>Let's <em>get started!</em></h2>
+      <p>Are You Looking For A Cutting-Edge AI-Powered Study Solution? How About Exam Prep Tailored To Your Exact Syllabus? TopSyllabus Can Help.</p>
+      <div class="fg"><label>Name</label><input type="text" placeholder="Name"></div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+      <div class="fg">
+        <label>Phone number</label>
+        <div class="phone-row">
+          <select class="cc-select" id="ccSelect" aria-label="Country code">
+            <option value="+91" data-ph="+91 98765 43210" selected>🇮🇳 +91</option>
+            <option value="+1" data-ph="+1 (555) 000-0000">🇺🇸 +1</option>
+            <option value="+44" data-ph="+44 7700 900000">🇬🇧 +44</option>
+            <option value="+61" data-ph="+61 4 0000 0000">🇦🇺 +61</option>
+            <option value="+971" data-ph="+971 50 000 0000">🇦🇪 +971</option>
+            <option value="+65" data-ph="+65 9000 0000">🇸🇬 +65</option>
+            <option value="+49" data-ph="+49 1234 567890">🇩🇪 +49</option>
+            <option value="+33" data-ph="+33 6 00 00 00 00">🇫🇷 +33</option>
+          </select>
+          <input type="tel" class="phone-input" id="phoneInput" placeholder="+91 98765 43210">
+        </div>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Message"></textarea></div>
+      <button class="btn-sub" id="submitBtn">
+        Submit
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <div class="faq-glo"></div>
+  <div class="tc">
+    <span class="sec-badge">FAQ</span>
+    <h2 class="sec-h">Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-lay">
+    <div class="faq-list">
+      <div class="fi open">
+        <button class="fi-q">What is TopSyllabus.ai and how does it work?<svg class="fi-ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="fi-a"><p>TopSyllabus is an AI-powered exam preparation platform. It builds a unique learning profile from your first session, identifies knowledge gaps, and delivers precisely targeted questions and explanations — so every minute of study is high-impact.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fi-q">How is this different from other online learning platforms?<svg class="fi-ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="fi-a"><p>Unlike static content libraries, TopSyllabus adapts in real time. The AI continuously updates your study plan based on what you know and what you don't — so it gets more useful the more you use it.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fi-q">How much time per day does a student need to spend?<svg class="fi-ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="fi-a"><p>As little as 15–20 minutes a day. Our structured daily sessions are designed to be short, focused, and high-impact — no multi-hour cramming sessions required.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fi-q">Can parents and teachers also use the platform?<svg class="fi-ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="fi-a"><p>Yes. The Enterprise plan includes dedicated parent and teacher dashboards — allowing oversight of progress, identification of weak areas, and collaborative goal-setting.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fi-q">Is there a free trial available?<svg class="fi-ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="fi-a"><p>Absolutely. All plans begin with a free trial — no credit card required. Explore the platform, see your first adaptive study plan, and only upgrade when you're ready.</p></div>
+      </div>
+    </div>
+    <div class="faq-photo"><img src="components/assets/b460a4cb5ddf3741.png" alt="Student preparing for exams"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo-wrap">
+        <img class="ft-logo-icon" src="assets/logo-icon.png" alt="">
+        <span class="ft-logo-name">TopSyllabus</span>
+      </div>
+      <p class="ft-tagline">Empowering students with AI-driven exam preparation</p>
+      <p class="ft-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+    </div>
+    <div class="ft-col">
+      <h4>Support</h4>
+      <a href="#features">Benefits</a>
+      <a href="#how">How it works</a>
+      <a href="#platform">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="ft-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Disclaimer / Support</a>
+    </div>
+  </div>
+  <hr class="ft-divider">
+  <div class="ft-bot">
+    <div class="ft-copy">© 2026 TopSyllabus.ai — All rights reserved.</div>
+    <div class="ft-soc">
+      <!-- Facebook -->
+      <div class="socb">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </div>
+      <!-- LinkedIn -->
+      <div class="socb ld">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <!-- Instagram -->
+      <div class="socb ig">
+        <svg viewBox="0 0 24 24" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <!-- X / Twitter -->
+      <div class="socb">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// Mobile hamburger menu
+const burgerBtn = document.getElementById('burgerBtn');
+const mobNav = document.getElementById('mobNav');
+const mobNavBg = document.getElementById('mobNavBg');
+function openMenu(){burgerBtn.classList.add('open');mobNav.classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){burgerBtn.classList.remove('open');mobNav.classList.remove('open');document.body.style.overflow='';}
+if(burgerBtn){
+  burgerBtn.addEventListener('click',()=>mobNav.classList.contains('open')?closeMenu():openMenu());
+}
+if(mobNavBg) mobNavBg.addEventListener('click',closeMenu);
+document.querySelectorAll('.mob-link,.mob-nav-ctas a').forEach(a=>a.addEventListener('click',closeMenu));
+
+
+// Country code → phone placeholder sync
+const ccSelect = document.getElementById('ccSelect');
+const phoneInput = document.getElementById('phoneInput');
+if(ccSelect && phoneInput){
+  ccSelect.addEventListener('change', () => {
+    const opt = ccSelect.selectedOptions[0];
+    phoneInput.placeholder = opt.dataset.ph || '';
+  });
+}
+
+// FAQ accordion
+document.querySelectorAll('.fi-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.fi');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(f=>f.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+// Sticky header shadow
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').style.boxShadow=window.scrollY>10?'0 2px 32px rgba(0,0,0,.12)':'0 2px 24px rgba(0,0,0,.06)';
+},{passive:true});
+
+// Form submit feedback
+document.getElementById('submitBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  const btn=this;
+  const orig=btn.innerHTML;
+  btn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sent! We\'ll be in touch shortly.';
+  btn.style.background='var(--blue)';
+  btn.style.opacity='0.8';
+  btn.disabled=true;
+  setTimeout(()=>{
+    btn.innerHTML=orig;
+    btn.style.opacity='';
+    btn.disabled=false;
+  },3500);
+});
+</script>
+</body>
+</html>
