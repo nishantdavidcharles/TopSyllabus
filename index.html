@@ -101,9 +101,33 @@ a{text-decoration:none}
 .feat-mid img{width:100%;height:100%;object-fit:cover;object-position:60% center;display:block}
 
 /* ── HOW IT WORKS ── */
-.how{background:#EEEEF2;padding:100px 80px}
-.how-hdr{margin-bottom:52px}
-.how-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.how{background:#F6F7FA;padding:100px 80px;position:relative;overflow:hidden}
+
+/* ── animated background layer ── */
+.how-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+/* blurred colour orbs */
+.how-orb{position:absolute;border-radius:50%;filter:blur(72px)}
+.how-orb-1{width:420px;height:420px;background:radial-gradient(circle,rgba(0,136,255,.13) 0%,transparent 70%);top:-100px;left:-80px;animation:hfloat-a 20s ease-in-out infinite}
+.how-orb-2{width:360px;height:360px;background:radial-gradient(circle,rgba(244,124,32,.11) 0%,transparent 70%);bottom:-80px;right:-60px;animation:hfloat-b 24s ease-in-out infinite}
+.how-orb-3{width:280px;height:280px;background:radial-gradient(circle,rgba(16,185,129,.1) 0%,transparent 70%);top:25%;right:5%;animation:hfloat-c 18s ease-in-out infinite 3s}
+/* geometric accents */
+.how-ring{position:absolute;border-radius:50%;border:2px solid transparent}
+.how-ring-1{width:90px;height:90px;border-color:rgba(0,136,255,.18);top:12%;left:8%;animation:hfloat-a 16s ease-in-out infinite 1s}
+.how-ring-2{width:52px;height:52px;border-color:rgba(16,185,129,.2);bottom:18%;left:22%;animation:hfloat-b 19s ease-in-out infinite 2s}
+.how-ring-3{width:36px;height:36px;border-color:rgba(244,124,32,.2);top:18%;right:12%;animation:hfloat-c 14s ease-in-out infinite}
+.how-sq{position:absolute;width:22px;height:22px;border-radius:5px;border:2px solid rgba(0,136,255,.16);bottom:22%;right:18%;animation:hspin 22s linear infinite}
+.how-dot{position:absolute;border-radius:50%}
+.how-dot-1{width:9px;height:9px;background:rgba(244,124,32,.28);top:22%;right:22%;animation:hfloat-a 13s ease-in-out infinite 0.5s}
+.how-dot-2{width:6px;height:6px;background:rgba(16,185,129,.3);top:55%;left:9%;animation:hfloat-b 17s ease-in-out infinite 4s}
+.how-dot-3{width:7px;height:7px;background:rgba(0,136,255,.22);bottom:28%;left:48%;animation:hfloat-c 15s ease-in-out infinite 1.5s}
+
+@keyframes hfloat-a{0%,100%{transform:translate(0,0)}35%{transform:translate(14px,-20px)}68%{transform:translate(-10px,14px)}}
+@keyframes hfloat-b{0%,100%{transform:translate(0,0)}40%{transform:translate(-16px,12px)}72%{transform:translate(12px,-16px)}}
+@keyframes hfloat-c{0%,100%{transform:translate(0,0)}50%{transform:translate(-14px,-18px)}}
+@keyframes hspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.how-hdr{margin-bottom:52px;position:relative;z-index:1}
+.how-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;position:relative;z-index:1}
 
 /* base card */
 .how-card{border-radius:24px;padding:28px 28px 30px;display:flex;flex-direction:column;gap:0;transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .38s ease;opacity:0;transform:translateY(36px)}
@@ -241,8 +265,22 @@ a{text-decoration:none}
 .faq-photo img{width:100%;height:100%;object-fit:cover}
 
 /* ── ABOUT US ── */
-.about{background:#F2F4F7}
-.about-inner{max-width:1100px;margin:0 auto}
+.about{background:#F2F4F7;position:relative;overflow:hidden}
+.about-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.about-orb{position:absolute;border-radius:50%;filter:blur(72px)}
+.about-orb-1{width:380px;height:380px;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 70%);top:-80px;right:-60px;animation:hfloat-b 22s ease-in-out infinite}
+.about-orb-2{width:320px;height:320px;background:radial-gradient(circle,rgba(0,136,255,.11) 0%,transparent 70%);bottom:-60px;left:-50px;animation:hfloat-a 26s ease-in-out infinite 2s}
+.about-orb-3{width:260px;height:260px;background:radial-gradient(circle,rgba(244,124,32,.1) 0%,transparent 70%);top:30%;left:6%;animation:hfloat-c 20s ease-in-out infinite 4s}
+.about-ring{position:absolute;border-radius:50%;border:2px solid transparent}
+.about-ring-1{width:80px;height:80px;border-color:rgba(16,185,129,.2);top:14%;right:10%;animation:hfloat-c 17s ease-in-out infinite 1s}
+.about-ring-2{width:48px;height:48px;border-color:rgba(0,136,255,.18);bottom:20%;right:24%;animation:hfloat-a 21s ease-in-out infinite 3s}
+.about-ring-3{width:34px;height:34px;border-color:rgba(244,124,32,.2);top:20%;left:14%;animation:hfloat-b 15s ease-in-out infinite}
+.about-sq{position:absolute;width:20px;height:20px;border-radius:4px;border:2px solid rgba(16,185,129,.18);bottom:25%;left:16%;animation:hspin 25s linear infinite}
+.about-dot{position:absolute;border-radius:50%}
+.about-dot-1{width:8px;height:8px;background:rgba(0,136,255,.25);top:18%;right:18%;animation:hfloat-b 14s ease-in-out infinite 0.8s}
+.about-dot-2{width:6px;height:6px;background:rgba(244,124,32,.3);bottom:30%;right:10%;animation:hfloat-c 18s ease-in-out infinite 2.5s}
+.about-dot-3{width:7px;height:7px;background:rgba(16,185,129,.28);top:60%;right:40%;animation:hfloat-a 16s ease-in-out infinite 1.2s}
+.about-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
 .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .about-card{background:#fff;border-radius:20px;padding:32px 28px;border:1px solid transparent;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:transform .32s ease,box-shadow .32s ease,background .32s ease,border-color .32s ease;cursor:default}
 .about-card:hover{transform:translateY(-6px)}
@@ -680,6 +718,19 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
 
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
+  <!-- decorative animated background -->
+  <div class="how-bg" aria-hidden="true">
+    <div class="how-orb how-orb-1"></div>
+    <div class="how-orb how-orb-2"></div>
+    <div class="how-orb how-orb-3"></div>
+    <div class="how-ring how-ring-1"></div>
+    <div class="how-ring how-ring-2"></div>
+    <div class="how-ring how-ring-3"></div>
+    <div class="how-sq"></div>
+    <div class="how-dot how-dot-1"></div>
+    <div class="how-dot how-dot-2"></div>
+    <div class="how-dot how-dot-3"></div>
+  </div>
   <div class="how-hdr tc">
     <h2 class="sec-h">How it works</h2>
     <p class="sec-sub">Three focused steps. One outcome that matters: you pass.</p>
@@ -821,6 +872,18 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
 
 <!-- ABOUT US -->
 <section class="sec about" id="about">
+  <div class="about-bg" aria-hidden="true">
+    <div class="about-orb about-orb-1"></div>
+    <div class="about-orb about-orb-2"></div>
+    <div class="about-orb about-orb-3"></div>
+    <div class="about-ring about-ring-1"></div>
+    <div class="about-ring about-ring-2"></div>
+    <div class="about-ring about-ring-3"></div>
+    <div class="about-sq"></div>
+    <div class="about-dot about-dot-1"></div>
+    <div class="about-dot about-dot-2"></div>
+    <div class="about-dot about-dot-3"></div>
+  </div>
   <div class="about-inner">
     <div class="tc" style="margin-bottom:56px">
       <span class="sec-badge">About Us</span>
