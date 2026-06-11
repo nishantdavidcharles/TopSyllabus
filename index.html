@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -89,19 +90,53 @@ a{text-decoration:none}
 .feat-mid img{width:100%;height:100%;object-fit:cover;object-position:60% center}
 
 /* ── HOW IT WORKS ── */
-.how{background:linear-gradient(rgba(27,61,139,.88),rgba(27,61,139,.88)),url('components/assets/93ca7798df4f3d32.jpg') center/cover no-repeat;padding:100px 80px}
-.how-hdr{margin-bottom:48px}
-.how .sec-h{color:#fff}
-.how .sec-sub{color:rgba(255,255,255,.78)}
-.steps{display:flex;flex-direction:column;margin-top:0}
-.step{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center;padding:40px 0;border-top:1px solid rgba(255,255,255,.12)}
-.step:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
-.step.rev{grid-template-columns:1fr 240px}
-.step.rev .sn{order:2;text-align:right}
-.step.rev .st{order:1}
-.sn{font-family:'Manrope',sans-serif;font-size:130px;font-weight:700;color:transparent;-webkit-text-stroke:2.5px var(--orange-fig);line-height:1}
-.st h3{font-size:30px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.5px}
-.st p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.75;max-width:920px}
+.how{background:#EEEEF2;padding:100px 80px}
+.how-hdr{margin-bottom:52px}
+.how .sec-badge{background:rgba(0,136,255,.1)!important;color:var(--blue)!important}
+.how-row{display:grid;grid-template-columns:repeat(3,1fr) 268px;gap:22px;align-items:stretch}
+
+/* base card */
+.how-card{border-radius:24px;padding:28px 28px 30px;display:flex;flex-direction:column;gap:0;transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .38s ease;opacity:0;transform:translateY(36px)}
+.how-card.visible{opacity:1;transform:translateY(0)}
+.how-card:nth-child(2){transition-delay:.11s}
+.how-card:nth-child(3){transition-delay:.22s}
+.how-card:hover{transform:translateY(-10px)!important}
+
+/* card colour themes */
+.how-card--blue{background:linear-gradient(148deg,#C9DEFF 0%,#DDE9FF 45%,#F2F7FF 100%);border:1px solid #A8C8F8;box-shadow:0 6px 28px rgba(0,136,255,.1),0 2px 6px rgba(0,0,0,.04)}
+.how-card--blue:hover{box-shadow:0 20px 56px rgba(0,136,255,.18),0 6px 14px rgba(0,0,0,.06)}
+.how-card--amber{background:linear-gradient(148deg,#FFE29A 0%,#FAEFC4 45%,#FFFBEF 100%);border:1px solid #F0CF7A;box-shadow:0 6px 28px rgba(244,124,32,.1),0 2px 6px rgba(0,0,0,.04)}
+.how-card--amber:hover{box-shadow:0 20px 56px rgba(244,124,32,.18),0 6px 14px rgba(0,0,0,.06)}
+.how-card--teal{background:linear-gradient(148deg,#A8EDD0 0%,#C8F3E3 45%,#EDFAF4 100%);border:1px solid #6DCCAA;box-shadow:0 6px 28px rgba(16,185,129,.1),0 2px 6px rgba(0,0,0,.04)}
+.how-card--teal:hover{box-shadow:0 20px 56px rgba(16,185,129,.18),0 6px 14px rgba(0,0,0,.06)}
+
+/* icon illustration */
+.how-card-ico{width:140px;height:140px;margin-bottom:16px;flex-shrink:0;transition:transform .32s ease;align-self:flex-start;margin-left:-6px}
+.how-card:hover .how-card-ico{transform:scale(1.07) translateY(-3px)}
+.how-card-ico img{width:100%;height:100%;object-fit:contain;object-position:left center}
+
+/* step badge */
+.how-step-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;align-self:flex-start;background:none!important;padding:0}
+.how-card--blue .how-step-badge{color:var(--blue)}
+.how-card--amber .how-step-badge{color:#b45309}
+.how-card--teal .how-step-badge{color:#047857}
+
+/* card heading */
+.how-card h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--dark);margin-bottom:14px;line-height:1.35;letter-spacing:-.25px}
+
+/* bullet list */
+.how-card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.how-card ul li{font-size:13.5px;color:rgb(50,60,72);line-height:1.58;display:flex;gap:10px;align-items:flex-start}
+.how-card ul li::before{content:'';width:7px;height:7px;border-radius:2.5px;flex-shrink:0;margin-top:6px}
+.how-card--blue ul li::before{background:var(--blue)}
+.how-card--amber ul li::before{background:#d97706}
+.how-card--teal ul li::before{background:#059669}
+
+/* student image panel */
+.how-student{border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#DDE6FA 0%,#EDE8FB 60%,#F5F2FE 100%);border:1px solid rgba(180,196,240,.7);box-shadow:0 6px 28px rgba(0,0,0,.07);display:flex;align-items:flex-end;justify-content:center;opacity:0;transform:translateY(36px);transition:transform .38s cubic-bezier(.22,1,.36,1) .3s,opacity .38s ease .3s,box-shadow .38s ease;min-height:360px}
+.how-student.visible{opacity:1;transform:translateY(0)}
+.how-student:hover{transform:translateY(-10px)!important;box-shadow:0 22px 60px rgba(80,60,180,.14)}
+.how-student img{width:100%;height:100%;object-fit:cover;object-position:top center;mix-blend-mode:multiply;display:block}
 
 /* ── PLATFORM FEATURES ── */
 .platform{background:#fff;overflow:hidden;position:relative;padding:100px 80px}
@@ -298,14 +333,9 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   .fc h3{font-size:20px}
   .fc p{font-size:14px}
 
-  /* How it works — center header on mobile */
-  .how-hdr{text-align:center}
-  .how-hdr .sec-badge{display:inline-block}
-  .step{grid-template-columns:80px 1fr;gap:20px;padding:28px 0}
-  .step.rev{grid-template-columns:1fr 80px}
-  .sn{font-size:72px}
-  .st h3{font-size:22px}
-  .st p{font-size:14px}
+  /* How it works — tablet */
+  .how-row{grid-template-columns:repeat(3,1fr);gap:18px}
+  .how-student{display:none}
 
   /* Platform */
   .plat-r1{grid-template-columns:repeat(2,1fr);gap:16px}
@@ -392,12 +422,13 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   .fc h3{font-size:18px;margin-bottom:8px}
   .fc p{font-size:13px}
 
-  /* How it works */
-  .step,.step.rev{display:flex;flex-direction:column;gap:8px;padding:24px 0;        text-align: center;}
-  .step.rev .sn{order:0;text-align:left;margin-left:0}
-  .sn{font-size:56px;line-height:1;margin-bottom:4px; text-align:left;margin-left:0;padding-left:0}
-  .st h3{font-size:20px}
-  .st p{font-size:14px}
+  /* How it works — mobile */
+  .how{padding:60px 20px}
+  .how-row{grid-template-columns:1fr;gap:16px}
+  .how-student{display:flex;min-height:240px}
+  .how-card-ico{width:160px;height:160px;margin-bottom:16px}
+  .how-card h3{font-size:17px}
+  .how-card ul li{font-size:13px}
 
   /* Platform */
   .plat-r1{grid-template-columns:1fr;gap:14px}
@@ -624,32 +655,61 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="how-hdr tc">
-    <span class="sec-badge" style="background:rgba(255,255,255,.15);color:#fff">How We Do It</span>
     <h2 class="sec-h">How it works</h2>
-    <p class="sec-sub">Three simple steps. One measurable outcome: you pass.</p>
+    <p class="sec-sub">Three focused steps. One outcome that matters: you pass.</p>
   </div>
-  <div class="steps">
-    <div class="step">
-      <div class="sn">01</div>
-      <div class="st">
-        <h3>Choose Your Smart-Alex Q-Pilot</h3>
-        <p>Pick your exam category and let our AI build a personalised study profile from your very first session. Your Q-Pilot learns continuously — adapting difficulty, pacing, and focus areas to your unique strengths and gaps.</p>
+  <div class="how-row">
+
+    <!-- Card 1 -->
+    <div class="how-card how-card--blue">
+      <div class="how-card-ico">
+        <img src="assets/how-icon-profile.png" alt="AI Study Profile">
       </div>
+      <span class="how-step-badge">Step 01</span>
+      <h3>Build Your AI Study Profile</h3>
+      <ul>
+        <li>Select your exam board and subject set in under two minutes</li>
+        <li>AI maps existing knowledge gaps from your very first session</li>
+        <li>Q-Pilot continuously adapts difficulty, pacing and topic focus</li>
+        <li>Every question calibrated — no generic, off-syllabus content</li>
+      </ul>
     </div>
-    <div class="step rev">
-      <div class="st">
-        <h3>Practice with AI</h3>
-        <p>Answer smart practice questions crafted around your exact exam board. Each session is adaptive — progressively harder where you're strong, focused and patient where you're weak. No wasted effort, no off-topic content.</p>
+
+    <!-- Card 2 -->
+    <div class="how-card how-card--amber">
+      <div class="how-card-ico">
+        <img src="assets/how-icon-practice.png" alt="AI Practice">
       </div>
-      <div class="sn">02</div>
+      <span class="how-step-badge">Step 02</span>
+      <h3>Practice Smarter, Not Harder</h3>
+      <ul>
+        <li>Exam-board aligned questions — zero off-syllabus distractions</li>
+        <li>Sessions escalate where you're strong, slow where you're not</li>
+        <li>Instant rationale for every answer, not just a score</li>
+        <li>Spaced repetition locks concepts into long-term memory</li>
+      </ul>
     </div>
-    <div class="step">
-      <div class="sn">03</div>
-      <div class="st">
-        <h3>Track Your Progress</h3>
-        <p>Watch your readiness score climb in real time. Subject-by-subject dashboards identify sticking points early — and keep you, your parents, and your teachers fully informed of exactly where you stand.</p>
+
+    <!-- Card 3 -->
+    <div class="how-card how-card--teal">
+      <div class="how-card-ico">
+        <img src="assets/how-icon-progress.png" alt="Track Progress">
       </div>
+      <span class="how-step-badge">Step 03</span>
+      <h3>Track Readiness in Real Time</h3>
+      <ul>
+        <li>Live readiness score per subject — know exactly where you stand</li>
+        <li>Dashboards surface weak spots before they cost marks</li>
+        <li>Weekly progress reports delivered automatically</li>
+        <li>Predictive pass probability updated after every session</li>
+      </ul>
     </div>
+
+    <!-- Student image panel -->
+    <div class="how-student">
+      <img src="assets/how-student.png" alt="Student studying with TopSyllabus">
+    </div>
+
   </div>
 </section>
 
@@ -907,6 +967,14 @@ if(ccSelect && phoneInput){
     phoneInput.placeholder = opt.dataset.ph || '';
   });
 }
+
+// How it works — scroll-reveal
+const howIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); howIO.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.how-card, .how-student').forEach(el => howIO.observe(el));
 
 // FAQ accordion
 document.querySelectorAll('.fi-q').forEach(btn=>{
