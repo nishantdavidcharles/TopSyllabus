@@ -75,19 +75,29 @@ a{text-decoration:none}
 .features{background:#fff;overflow:hidden;position:relative}
 .feat-glo{position:absolute;left:-321px;top:50%;transform:translateY(-50%);width:713px;height:948px;border-radius:50%;background:radial-gradient(262px 348px at 50% 50%,rgba(250,130,25,.42) 0%,transparent 100%);pointer-events:none}
 .feat-glb{position:absolute;right:-220px;top:50%;transform:translateY(-50%);width:891px;height:1299px;border-radius:50%;background:radial-gradient(445px 649px at 50% 50%,rgba(73,171,242,.4) 0%,rgba(179,218,249,0) 100%);pointer-events:none}
-.feat-grid{display:grid;grid-template-columns:1fr 340px 1fr;gap:40px;align-items:center;margin-top:56px}
-.feat-col{display:flex;flex-direction:column;gap:40px}
-.fc{background:rgba(248,248,246,.7);border-radius:24px;padding:50px;backdrop-filter:blur(4px);box-shadow:var(--card-shadow);text-align:center;display:flex;flex-direction:column;align-items:center;transition:transform .2s,box-shadow .2s;cursor:default}
-.fc:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgb(200,212,232),0px 56px 36px rgba(0,0,0,.03),0px 26px 26px rgba(0,0,0,.06),0px 10px 16px rgba(0,0,0,.06)}
-.fc-ico{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:24px;flex-shrink:0}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;align-items:stretch;margin-top:48px}
+.feat-col{display:flex;flex-direction:column;gap:16px}
+.fc{background:rgba(248,248,246,.7);border-radius:20px;padding:28px 24px;backdrop-filter:blur(4px);box-shadow:var(--card-shadow);border:1px solid transparent;text-align:center;display:flex;flex-direction:column;align-items:center;flex:1;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,border-color .3s ease;cursor:default}
+/* hover base */
+.fc:hover{transform:translateY(-4px)}
+/* colour-cycle on hover — inspired by How It Works palette */
+.fc--blue:hover{background:linear-gradient(148deg,#C9DEFF 0%,#DDE9FF 50%,#F2F7FF 100%);border-color:#A8C8F8;box-shadow:0 12px 36px rgba(0,136,255,.13)}
+.fc--blue:hover .fc-ico{background:var(--blue)}
+.fc--amber:hover{background:linear-gradient(148deg,#FFE29A 0%,#FAEFC4 50%,#FFFBEF 100%);border-color:#F0CF7A;box-shadow:0 12px 36px rgba(244,124,32,.13)}
+.fc--amber:hover .fc-ico{background:#d97706}
+.fc--teal:hover{background:linear-gradient(148deg,#A8EDD0 0%,#C8F3E3 50%,#EDFAF4 100%);border-color:#6DCCAA;box-shadow:0 12px 36px rgba(16,185,129,.13)}
+.fc--teal:hover .fc-ico{background:#059669}
+/* icon */
+.fc-ico{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;transition:background .3s ease,transform .3s ease}
+.fc:hover .fc-ico{transform:scale(1.08)}
 .fc-ico.bl{background:rgb(0,136,255)}
 .fc-ico.nv{background:rgb(27,61,139)}
-.fc-ico img{width:40px;height:40px;object-fit:contain;filter:brightness(0) invert(1)}
-.fc-ico-svg{width:40px;height:40px;fill:#fff}
-.fc h3{font-size:28px;font-weight:500;margin-bottom:12px;color:rgb(45,52,54);line-height:1.1;letter-spacing:-.5px}
-.fc p{font-size:15px;color:var(--muted);line-height:1.6;text-align:center}
-.feat-mid{border-radius:24px;overflow:hidden;align-self:stretch;min-height:640px}
-.feat-mid img{width:100%;height:100%;object-fit:cover;object-position:60% center}
+.fc-ico img{width:36px;height:36px;object-fit:contain;filter:brightness(0) invert(1)}
+.fc-ico-svg{width:36px;height:36px;fill:#fff}
+.fc h3{font-size:19px;font-weight:600;margin-bottom:10px;color:rgb(45,52,54);line-height:1.25;letter-spacing:-.3px}
+.fc p{font-size:14px;color:var(--muted);line-height:1.6;text-align:center}
+.feat-mid{border-radius:20px;overflow:hidden;align-self:stretch}
+.feat-mid img{width:100%;height:100%;object-fit:cover;object-position:60% center;display:block}
 
 /* ── HOW IT WORKS ── */
 .how{background:#EEEEF2;padding:100px 80px}
@@ -280,7 +290,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   .hero-inner{padding:0 48px}
   .sec,.how,.platform,.pricing,.testi,.faq{padding-left:48px;padding-right:48px}
   .stats-band{padding-left:48px;padding-right:48px}
-  .feat-grid{grid-template-columns:1fr 280px 1fr;gap:28px}
+  .feat-grid{grid-template-columns:1fr 1fr 1fr;gap:20px}
   .plat-r1{grid-template-columns:repeat(2,1fr)}
   .plat-r2{flex-wrap:wrap}
   .plat-r2 .pc{width:calc(50% - 12px)}
@@ -292,9 +302,9 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
 @media (max-width:1024px){
   .hdr-nav{gap:24px}
   .hdr-nav a{font-size:14px}
-  .feat-grid{grid-template-columns:1fr 240px 1fr;gap:20px}
-  .fc{padding:36px 20px}
-  .fc h3{font-size:22px}
+  .feat-grid{grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .fc{padding:24px 18px}
+  .fc h3{font-size:17px}
 }
 
 @media (max-width:860px){
@@ -323,10 +333,10 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   .pricing{padding:64px 24px}
   .sec-h{font-size:36px}
 
-  /* Features — hide center image, show 2-col cards */
-  .feat-grid{grid-template-columns:1fr 1fr;gap:16px}
+  /* Features — stack to 2-col at tablet, hide image */
+  .feat-grid{grid-template-columns:1fr 1fr;gap:14px}
   .feat-mid{display:none}
-  .feat-col{gap:16px}
+  .feat-col{gap:14px;display:grid;grid-template-columns:1fr 1fr;grid-column:span 2}
   .fc{padding:28px 20px}
   .fc-ico{width:64px;height:64px;margin-bottom:16px}
   .fc-ico img,.fc-ico-svg{width:32px;height:32px}
@@ -414,9 +424,10 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   .sec-sub{font-size:14px}
   .sec-badge{font-size:11px;padding:5px 16px}
 
-  /* Features — single col */
-  .feat-grid{grid-template-columns:1fr;gap:14px}
-  .fc{padding:24px 20px;border-radius:18px}
+  /* Features — single col on mobile */
+  .feat-grid{grid-template-columns:1fr;gap:12px}
+  .feat-col{display:flex;flex-direction:column;gap:12px;grid-column:auto}
+  .fc{padding:22px 18px;border-radius:18px}
   .fc-ico{width:56px;height:56px;margin-bottom:14px}
   .fc-ico img,.fc-ico-svg{width:28px;height:28px}
   .fc h3{font-size:18px;margin-bottom:8px}
@@ -605,19 +616,19 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   </div>
   <div class="feat-grid">
     <div class="feat-col">
-      <div class="fc">
+      <div class="fc fc--blue">
         <div class="fc-ico bl"><img src="assets/icon-fc-left.svg" alt=""></div>
         <h3>Adaptive Learning Engine</h3>
         <p>AI Identifies And Maps Weak Topics, Adjusts Practice Sessions To Focus On Them Before Free Study.</p>
       </div>
-      <div class="fc">
+      <div class="fc fc--amber">
         <div class="fc-ico bl">
           <svg class="fc-ico-svg" viewBox="0 0 40 40"><path d="M35 6.667H5A3.333 3.333 0 0 0 1.667 10v18.333A3.333 3.333 0 0 0 5 31.667h8.333L20 38.333l6.667-6.666H35a3.333 3.333 0 0 0 3.333-3.334V10A3.333 3.333 0 0 0 35 6.667ZM13.333 21.667a1.667 1.667 0 1 1 0-3.334 1.667 1.667 0 0 1 0 3.334Zm6.667 0a1.667 1.667 0 1 1 0-3.334 1.667 1.667 0 0 1 0 3.334Zm6.667 0a1.667 1.667 0 1 1 0-3.334 1.667 1.667 0 0 1 0 3.334Z"/></svg>
         </div>
         <h3>Instant Feedback &amp; Explanations</h3>
         <p>Every Question Comes With Step-By-Step Explanation — Not Just Right/Wrong, Understand Why.</p>
       </div>
-      <div class="fc">
+      <div class="fc fc--teal">
         <div class="fc-ico bl">
           <svg class="fc-ico-svg" viewBox="0 0 40 40"><rect x="3.333" y="26.667" width="6.667" height="10" rx="1"/><rect x="16.667" y="18.333" width="6.667" height="18.333" rx="1"/><rect x="30" y="10" width="6.667" height="26.667" rx="1"/><path d="M5 21.667 L18.333 13.333 L25 18.333 L35 8.333" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
         </div>
@@ -629,19 +640,19 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
       <img src="assets/features-student-hq.png" alt="Student studying with TopSyllabus">
     </div>
     <div class="feat-col">
-      <div class="fc">
+      <div class="fc fc--amber">
         <div class="fc-ico nv"><img src="assets/icon-fc-right.svg" alt=""></div>
         <h3>Curriculum-Aligned Content</h3>
         <p>All Questions Mapped To Official Syllabus Objectives — Always On Track, Always On Exam Focus.</p>
       </div>
-      <div class="fc">
+      <div class="fc fc--teal">
         <div class="fc-ico bl">
           <svg class="fc-ico-svg" viewBox="0 0 40 40"><rect x="5" y="6.667" width="30" height="30" rx="3" stroke="white" stroke-width="2.5" fill="none"/><line x1="26.667" y1="3.333" x2="26.667" y2="10" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="13.333" y1="3.333" x2="13.333" y2="10" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="16.667" x2="35" y2="16.667" stroke="white" stroke-width="2.5"/><circle cx="13.333" cy="24" r="2" fill="white"/><circle cx="20" cy="24" r="2" fill="white"/><circle cx="26.667" cy="24" r="2" fill="white"/></svg>
         </div>
         <h3>Study On Your Schedule</h3>
         <p>Mobile-First Design — Study For 5 Minutes, Any Time, Any Space. No Minimum Session.</p>
       </div>
-      <div class="fc">
+      <div class="fc fc--blue">
         <div class="fc-ico nv">
           <svg class="fc-ico-svg" viewBox="0 0 40 40"><path d="M28.333 35v-3.333A6.667 6.667 0 0 0 21.667 25H8.333A6.667 6.667 0 0 0 1.667 31.667V35"/><circle cx="15" cy="15" r="6.667"/><path d="M38.333 35v-3.333A6.667 6.667 0 0 0 33.333 25"/><path d="M26.667 8.433a6.667 6.667 0 0 1 0 13.134"/></svg>
         </div>
