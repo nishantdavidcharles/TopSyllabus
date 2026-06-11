@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="preload" as="image" href="components/assets/fcfb090e9a3b5174.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -238,10 +239,16 @@ a{text-decoration:none}
 .about{background:#F2F4F7}
 .about-inner{max-width:1100px;margin:0 auto}
 .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.about-card{background:#fff;border-radius:20px;padding:32px 28px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.05);transition:transform .3s ease,box-shadow .3s ease}
-.about-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.09)}
-.about-card-ico{width:52px;height:52px;border-radius:14px;background:rgba(0,136,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--blue);transition:background .3s ease,color .3s ease}
-.about-card:hover .about-card-ico{background:var(--blue);color:#fff}
+.about-card{background:#fff;border-radius:20px;padding:32px 28px;border:1px solid transparent;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:transform .32s ease,box-shadow .32s ease,background .32s ease,border-color .32s ease;cursor:default}
+.about-card:hover{transform:translateY(-6px)}
+.about-card--blue:hover{background:linear-gradient(148deg,#C9DEFF,#DDE9FF,#F2F7FF);border-color:#A8C8F8;box-shadow:0 12px 36px rgba(0,136,255,.14)}
+.about-card--amber:hover{background:linear-gradient(148deg,#FFE29A,#FAEFC4,#FFFBEF);border-color:#F0CF7A;box-shadow:0 12px 36px rgba(244,124,32,.14)}
+.about-card--teal:hover{background:linear-gradient(148deg,#A8EDD0,#C8F3E3,#EDFAF4);border-color:#6DCCAA;box-shadow:0 12px 36px rgba(16,185,129,.14)}
+.about-card-ico{width:52px;height:52px;border-radius:14px;background:rgba(0,136,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--blue);transition:background .32s ease,color .32s ease,transform .32s ease}
+.about-card:hover .about-card-ico{transform:scale(1.1)}
+.about-card--blue:hover .about-card-ico{background:var(--blue);color:#fff}
+.about-card--amber:hover .about-card-ico{background:#d97706;color:#fff}
+.about-card--teal:hover .about-card-ico{background:#059669;color:#fff}
 .about-card h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--dark);margin-bottom:10px;letter-spacing:-.2px}
 .about-card p{font-size:14.5px;color:var(--muted);line-height:1.65}
 @media(max-width:860px){.about-grid{grid-template-columns:1fr 1fr}}
@@ -438,7 +445,6 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   /* How it works — mobile */
   .how{padding:60px 20px}
   .how-row{grid-template-columns:1fr;gap:16px}
-  .how-student{display:flex;min-height:240px}
   .how-card-ico{width:160px;height:160px;margin-bottom:16px}
   .how-card h3{font-size:17px}
   .how-card ul li{font-size:13px}
@@ -641,7 +647,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
       </div>
     </div>
     <div class="feat-mid">
-      <img src="assets/features-student-hq.png" alt="Student studying with TopSyllabus">
+      <img src="assets/features-student-hq.png" alt="Student studying with TopSyllabus" loading="lazy" decoding="async">
     </div>
     <div class="feat-col">
       <div class="fc fc--amber">
@@ -676,22 +682,22 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
     <p class="sec-sub">Every Feature Designed Around One Question: What Actually Helps Students Pass Exams?</p>
   </div>
   <div class="plat-r1">
-    <div class="pc"><div class="pc-img"><img src="components/assets/f2981a87e986add1.jpg" alt="Smart AI Co-Pilot"></div><div class="pc-bd"><span class="pc-pill">Live · Core AI</span><h3>Smart AI Co-Pilot</h3><p>Our AI Understands Your Board Curriculum And Generates Chapter-Wise, Board-Pattern Questions Tailored To Your Exact Learning Need.</p></div></div>
-    <div class="pc"><div class="pc-img"><img src="components/assets/90146f896a3c231d.jpg" alt="Analytics"></div><div class="pc-bd"><span class="pc-pill">Live · Analytics</span><h3>Detailed Performance Analytics</h3><p>Track Performance Across Subjects, Chapters, And Difficulty Levels. Parents And Teachers Get Their Own Dashboards — Identify Weak Areas B.</p></div></div>
-    <div class="pc"><div class="pc-img"><img src="components/assets/dc791d4285575c13.jpg" alt="Practice"></div><div class="pc-bd"><span class="pc-pill">Live · Practice</span><h3>Continuous Weekly Practice</h3><p>Weekly Revision Cycles Ensure Concepts Stay Fresh. Structured 15–20 Minute Daily Sessions — No Last-Minute Cramming, No Guesswork.</p></div></div>
-    <div class="pc"><div class="pc-img"><img src="components/assets/cc3c591cb9c55a80.jpg" alt="Multi-User"></div><div class="pc-bd"><span class="pc-pill">Live · Multi-User</span><h3>Multi-User Dashboards</h3><p>Students, Parents, And Teachers Each Get A Dedicated View With Relevant Insights And Controls — A School-Wide Admin Panel Is Available.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/f2981a87e986add1.jpg" alt="Smart AI Co-Pilot" loading="lazy" decoding="async"></div><div class="pc-bd"><span class="pc-pill">Live · Core AI</span><h3>Smart AI Co-Pilot</h3><p>Our AI Understands Your Board Curriculum And Generates Chapter-Wise, Board-Pattern Questions Tailored To Your Exact Learning Need.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/90146f896a3c231d.jpg" alt="Analytics" loading="lazy" decoding="async"></div><div class="pc-bd"><span class="pc-pill">Live · Analytics</span><h3>Detailed Performance Analytics</h3><p>Track Performance Across Subjects, Chapters, And Difficulty Levels. Parents And Teachers Get Their Own Dashboards — Identify Weak Areas B.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/dc791d4285575c13.jpg" alt="Practice" loading="lazy" decoding="async"></div><div class="pc-bd"><span class="pc-pill">Live · Practice</span><h3>Continuous Weekly Practice</h3><p>Weekly Revision Cycles Ensure Concepts Stay Fresh. Structured 15–20 Minute Daily Sessions — No Last-Minute Cramming, No Guesswork.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/cc3c591cb9c55a80.jpg" alt="Multi-User" loading="lazy" decoding="async"></div><div class="pc-bd"><span class="pc-pill">Live · Multi-User</span><h3>Multi-User Dashboards</h3><p>Students, Parents, And Teachers Each Get A Dedicated View With Relevant Insights And Controls — A School-Wide Admin Panel Is Available.</p></div></div>
   </div>
   <div class="plat-r2">
-    <div class="pc"><div class="pc-img"><img src="components/assets/ce0ec71d497358c1.jpg" alt="NEP 2020"></div><div class="pc-bd"><span class="pc-pill">Live · NEP 2020</span><h3>NEP 2020 Aligned</h3><p>Questions Designed To Test Conceptual Understanding And Application — Aligned To The Revised NCERT 2026-27 Curriculum Across CBSE.</p></div></div>
-    <div class="pc"><div class="pc-img"><img src="components/assets/d91745dbb6c685a5.jpg" alt="Predictive Score"></div><div class="pc-bd"><span class="pc-pill soon">Coming Soon</span><h3>Predictive Readiness Score</h3><p>Our AI Will Analyse Your Practice History And Predict Your Exam Score — So You Always Know If You're On Track To Reach Your Goal Before Exam.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/ce0ec71d497358c1.jpg" alt="NEP 2020" loading="lazy" decoding="async"></div><div class="pc-bd"><span class="pc-pill">Live · NEP 2020</span><h3>NEP 2020 Aligned</h3><p>Questions Designed To Test Conceptual Understanding And Application — Aligned To The Revised NCERT 2026-27 Curriculum Across CBSE.</p></div></div>
+    <div class="pc"><div class="pc-img"><img src="components/assets/d91745dbb6c685a5.jpg" alt="Predictive Score" loading="lazy" decoding="async"></div><div class="pc-bd"><span class="pc-pill soon">Coming Soon</span><h3>Predictive Readiness Score</h3><p>Our AI Will Analyse Your Practice History And Predict Your Exam Score — So You Always Know If You're On Track To Reach Your Goal Before Exam.</p></div></div>
     <div class="pc"><div class="pc-img" style="background:linear-gradient(135deg,#6b48ff,#a78bfa);display:flex;align-items:center;justify-content:center;height:200px"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="pc-bd"><span class="pc-pill soon">Coming Soon</span><h3>Competitive Exam Prep</h3><p>The Same AI Engine, Extended To India's Most High-Stakes Entrance Exams. Competitive Exam Preparation — Built On The Foundation Student.</p></div></div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <img class="pricing-topo" src="assets/pricing-bg.svg" alt="" aria-hidden="true">
-  <img class="pricing-topo2" src="assets/pricing-bg2.svg" alt="" aria-hidden="true">
+  <img class="pricing-topo" src="assets/pricing-bg.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <img class="pricing-topo2" src="assets/pricing-bg2.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="tc" style="position:relative;z-index:1">
     <span class="sec-badge">Pricing</span>
     <h2 class="sec-h">Invest in your future</h2>
@@ -763,7 +769,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
     <!-- Card 1 -->
     <div class="how-card how-card--blue">
       <div class="how-card-ico">
-        <img src="assets/how-icon-profile.png" alt="AI Study Profile">
+        <img src="assets/how-icon-profile.png" alt="AI Study Profile" loading="lazy" decoding="async">
       </div>
       <span class="how-step-badge">Step 01</span>
       <h3>Build Your AI Study Profile</h3>
@@ -778,7 +784,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
     <!-- Card 2 -->
     <div class="how-card how-card--amber">
       <div class="how-card-ico">
-        <img src="assets/how-icon-practice.png" alt="AI Practice">
+        <img src="assets/how-icon-practice.png" alt="AI Practice" loading="lazy" decoding="async">
       </div>
       <span class="how-step-badge">Step 02</span>
       <h3>Practice Smarter, Not Harder</h3>
@@ -793,7 +799,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
     <!-- Card 3 -->
     <div class="how-card how-card--teal">
       <div class="how-card-ico">
-        <img src="assets/how-icon-progress.png" alt="Track Progress">
+        <img src="assets/how-icon-progress.png" alt="Track Progress" loading="lazy" decoding="async">
       </div>
       <span class="how-step-badge">Step 03</span>
       <h3>Track Readiness in Real Time</h3>
@@ -808,6 +814,40 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   </div>
 </section>
 
+<!-- ABOUT US -->
+<section class="sec about" id="about">
+  <div class="about-inner">
+    <div class="tc" style="margin-bottom:56px">
+      <span class="sec-badge">About Us</span>
+      <h2 class="sec-h">We're building the future of exam prep</h2>
+      <p class="sec-sub">A team of educators, engineers, and students — united by one belief: every learner deserves a smarter path to success.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card about-card--blue">
+        <div class="about-card-ico">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>To replace guesswork with AI-guided growth — giving every student a personalised, data-backed path to passing their exams with confidence.</p>
+      </div>
+      <div class="about-card about-card--amber">
+        <div class="about-card-ico">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Our Story</h3>
+        <p>Born out of frustration with one-size-fits-all revision tools, TopSyllabus was founded to bring adaptive, intelligent learning to students across India and beyond.</p>
+      </div>
+      <div class="about-card about-card--teal">
+        <div class="about-card-ico">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Our Team</h3>
+        <p>Educators from top universities, engineers passionate about EdTech, and student advisors who've sat the very exams we help prepare for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="sec testi" id="testimonials">
   <div class="tc">
@@ -819,17 +859,17 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
     <div class="tcrd">
       <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg></div>
       <p class="tcrd-q">"TopSyllabus completely changed how I study. The AI adapts to my weaknesses and I improved my mock scores by 34 points in just 6 weeks. Nothing else comes close."</p>
-      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/dc791d4285575c13.jpg" alt="Avril Song"></div><div><div class="tcrd-name">Avril Song</div><div class="tcrd-role">Science Student · 4.8 ★</div></div></div>
+      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/dc791d4285575c13.jpg" alt="Avril Song" loading="lazy" decoding="async"></div><div><div class="tcrd-name">Avril Song</div><div class="tcrd-role">Science Student · 4.8 ★</div></div></div>
     </div>
     <div class="tcrd">
       <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg></div>
       <p class="tcrd-q">"The step-by-step explanations are game-changing. I finally understand the why, not just the what. My exam confidence is completely different now — I feel prepared."</p>
-      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/d91745dbb6c685a5.jpg" alt="Michael Wong"></div><div><div class="tcrd-name">Michael Wong</div><div class="tcrd-role">UI/UX Design Student · 4.9 ★</div></div></div>
+      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/d91745dbb6c685a5.jpg" alt="Michael Wong" loading="lazy" decoding="async"></div><div><div class="tcrd-name">Michael Wong</div><div class="tcrd-role">UI/UX Design Student · 4.9 ★</div></div></div>
     </div>
     <div class="tcrd">
       <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/></svg></div>
       <p class="tcrd-q">"The progress analytics are incredible. I can see exactly which chapters need attention and my parents can track too. The predictive score keeps me honest about where I stand."</p>
-      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/ce0ec71d497358c1.jpg" alt="Jeane Wood"></div><div><div class="tcrd-name">Jeane Wood</div><div class="tcrd-role">Data Science Student · 5.0 ★</div></div></div>
+      <div class="tcrd-auth"><div class="tcrd-av"><img src="components/assets/ce0ec71d497358c1.jpg" alt="Jeane Wood" loading="lazy" decoding="async"></div><div><div class="tcrd-name">Jeane Wood</div><div class="tcrd-role">Data Science Student · 5.0 ★</div></div></div>
     </div>
   </div>
 </section>
@@ -897,41 +937,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
         <div class="fi-a"><p>Absolutely. All plans begin with a free trial — no credit card required. Explore the platform, see your first adaptive study plan, and only upgrade when you're ready.</p></div>
       </div>
     </div>
-    <div class="faq-photo"><img src="components/assets/b460a4cb5ddf3741.png" alt="Student preparing for exams"></div>
-  </div>
-</section>
-
-<!-- ABOUT US -->
-<section class="sec about" id="about">
-  <div class="about-inner">
-    <div class="tc" style="margin-bottom:56px">
-      <span class="sec-badge">About Us</span>
-      <h2 class="sec-h">We're building the future of exam prep</h2>
-      <p class="sec-sub">A team of educators, engineers, and students — united by one belief: every learner deserves a smarter path to success.</p>
-    </div>
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="about-card-ico">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Our Mission</h3>
-        <p>To replace guesswork with AI-guided growth — giving every student a personalised, data-backed path to passing their exams with confidence.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-ico">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3>Our Story</h3>
-        <p>Born out of frustration with one-size-fits-all revision tools, TopSyllabus was founded to bring adaptive, intelligent learning to students across India and beyond.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-ico">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Our Team</h3>
-        <p>Educators from top universities, engineers passionate about EdTech, and student advisors who've sat the very exams we help prepare for.</p>
-      </div>
-    </div>
+    <div class="faq-photo"><img src="components/assets/b460a4cb5ddf3741.png" alt="Student preparing for exams" loading="lazy" decoding="async"></div>
   </div>
 </section>
 
@@ -940,7 +946,7 @@ footer{background:linear-gradient(135deg,rgb(69,112,210) 0%,rgb(42,76,170) 100%)
   <div class="ft-grid">
     <div>
       <div class="ft-logo-wrap">
-        <img class="ft-logo-icon" src="assets/logo-icon.png" alt="">
+        <img class="ft-logo-icon" src="assets/logo-icon.png" alt="" loading="lazy" decoding="async">
         <span class="ft-logo-name">TopSyllabus</span>
       </div>
       <p class="ft-tagline">Empowering students with AI-driven exam preparation</p>
